@@ -34,9 +34,8 @@ def getIDInfo():
 
 def getCourse():
     url = "http://osscache.vol.jxmfkj.com/html/assets/js/course_data.js"
-    # res = requests.get(url).text
-    ress = 'var course_data = {"result":{"id":"1","title":"第十三季第四期","uri":"http://h5.cyol.com/special/daxuexi/cq2hkv2t8d/index.html"},"status":200}'
-    CourseInfo = ress[18:]
+    res = requests.get(url).text
+    CourseInfo = res[18:]
     CourseJson = json.loads(CourseInfo)
     Course = CourseJson.get("result")
     try:
