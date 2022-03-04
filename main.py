@@ -63,4 +63,5 @@ def getStudy(course, nid, subOrg, cardNo):
 
 
 if __name__ == '__main__':
+    checkConfig()
     getStudy(getCourse(), nid, subOrg, cardNo)
