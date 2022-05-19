@@ -14,10 +14,8 @@ stop = 1.0
 
 
 def getCourse():
-    url = "http://osscache.vol.jxmfkj.com/html/assets/js/course_data.js"
-    res = requests.get(url).text
-    CourseInfo = res[18:]
-    CourseJson = json.loads(CourseInfo)
+    url = "http://osscache.vol.jxmfkj.com/pub/vol/volClass/current"
+    CourseJson = requests.get(url).json()
     Course = CourseJson.get("result")
     try:
         if json.dumps(Course).count("id") == 1:
