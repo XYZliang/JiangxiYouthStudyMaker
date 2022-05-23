@@ -3,19 +3,19 @@
 
 ## 运行环境
 
-Python3，requests，**xlrd==1.2.0**，tqdm
+Python版本需要大于3.6
 
 ## 手动运行指南
 
 1. 确保你已了解普通单人版如何使用
 
-2. 在Data.xlsx写入多人的数据
+2. 在Data.xlsx写入多人的数据。第四列的openid如果你知道如何抓取且能获取到的话就填入，只为保险
 
-3. 在makers.py内10-13行进行简单配置，详见备注
+3. cd到makers.py的文件目录下，pip3 install -r requirements.txt 安装依赖
+
+4. 在makers.py内11-14行进行简单配置，详见备注
 
    ![image-20220304223856736](README/image-20220304223856736.png)
-
-   
 
    
 
