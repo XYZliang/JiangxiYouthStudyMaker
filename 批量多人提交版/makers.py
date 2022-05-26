@@ -57,7 +57,7 @@ def getStudy(course, nid, subOrg, cardNo, openid=""):
             return
         else:
             print(cardNo + "提交大学习失败错误：" + res.text)
-    except JSONDecodeError:
+    except JSONDecodeError or UnboundLocalError:
         print(cardNo + "提交大学习导致严重未知错误：" + res.text)
 
 
