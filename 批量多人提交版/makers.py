@@ -47,9 +47,9 @@ def getStudy(course, nid, subOrg, cardNo, openid=""):
     course = str(int(course))
     url = "http://www.jxqingtuan.cn/pub/vol/volClass/join?accessToken=" + openid
     if need_subOrg:
-        data = {"course": course, "nid": nid, "cardNo": cardNo, "subOrg": subOrg}
+        data = {"course": course, "subOrg": subOrg, "nid": nid, "cardNo": cardNo}
     else:
-        data = {"course": course, "nid": nid, "cardNo": cardNo}
+        data = {"course": course, "subOrg": None, "nid": nid, "cardNo": cardNo}
     try:
         res = json.loads((requests.post(url=url, data=json.dumps(data),headers=makeHeader(openid))).text)
         if res.get("status") == 200:
