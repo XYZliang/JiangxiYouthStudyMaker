@@ -1,12 +1,13 @@
-import random
-from json import JSONDecodeError
-import requests
 import json
-import xlrd
-import time
+import random
 import secrets
-from tqdm import tqdm
+from json import JSONDecodeError
+
+import requests
+import time
+import xlrd
 from anti_useragent import UserAgent
+from tqdm import tqdm
 
 # 是否包含subOrg参数，即是否为三级团组织，详见README，默认为否，即四级团组织
 need_subOrg = False
@@ -24,7 +25,7 @@ def makeHeader(openid=""):
         'Cookie': 'JSESSIONID=' + secrets.token_urlsafe(40),
         'Host': 'www.jxqingtuan.cn',
         'Origin': 'http://www.jxqingtuan.cn',
-        'Referer': 'http://www.jxqingtuan.cn/html/h5_index.html?&accessToken=' + openid+'&openid='+openid,
+        'Referer': 'http://www.jxqingtuan.cn/html/h5_index.html?&accessToken=' + openid + '&openid=' + openid,
         'User-Agent': UserAgent(platform="iphone").wechat,
         'X-Requested-With': 'XMLHttpRequest'
     }
@@ -51,7 +52,9 @@ def getStudy(course, nid, subOrg, cardNo, openid=""):
     else:
         data = {"course": course, "subOrg": None, "nid": nid, "cardNo": cardNo}
     try:
-        res = json.loads((requests.post(url=url, data=json.dumps(data),headers=makeHeader(openid))).text)
+        res = json.loads(
+            (requests.post(url=url, data=json.dumps(data, ensure_ascii=False).encode('utf-8'),
+                           headers=makeHeader(openid))).text)
         if res.get("status") == 200:
             # print(cardNo + "大学习成功！")
             return
@@ -63,7 +66,7 @@ def getStudy(course, nid, subOrg, cardNo, openid=""):
 
 if __name__ == '__main__':
     Course = getCourse()
-    data = xlrd.open_workbook(r'Data.xlsx')
+    data = xlrd.open_workbook(r'192.xlsx')
     dataSheets = data.sheets()[0]
     row = dataSheets.nrows
     print("开始批量提交!")

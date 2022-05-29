@@ -1,5 +1,6 @@
 import json
 import secrets
+
 import requests
 from anti_useragent import UserAgent
 
@@ -72,7 +73,8 @@ def getStudy(course, nid, subOrg, cardNo):
         data = {"course": course, "subOrg": subOrg, "nid": nid, "cardNo": cardNo}
     else:
         data = {"course": course, "subOrg": None, "nid": nid, "cardNo": cardNo}
-    res = json.loads((requests.post(url=url, data=json.dumps(data), headers=makeHeader())).text)
+    res = json.loads(
+        (requests.post(url=url, data=json.dumps(data, ensure_ascii=False).encode('utf-8'), headers=makeHeader())).text)
     if res.get("status") == 200:
         print(cardNo + "大学习成功！")
     else:
