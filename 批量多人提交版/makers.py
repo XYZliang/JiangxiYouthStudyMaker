@@ -25,7 +25,7 @@ def makeHeader(openid=""):
         'Cookie': 'JSESSIONID=' + secrets.token_urlsafe(40),
         'Host': 'www.jxqingtuan.cn',
         'Origin': 'http://www.jxqingtuan.cn',
-        'Referer': 'http://www.jxqingtuan.cn/html/h5_index.html?&accessToken=' + openid + '&openid=' + openid,
+        'Referer': 'http://www.jxqingtuan.cn/html/h5_index.html',
         'User-Agent': UserAgent(platform="iphone").wechat,
         'X-Requested-With': 'XMLHttpRequest'
     }
