@@ -66,7 +66,7 @@ def getStudy(course, nid, subOrg, cardNo, openid=""):
 
 if __name__ == '__main__':
     Course = getCourse()
-    data = xlrd.open_workbook(r'192.xlsx')
+    data = xlrd.open_workbook(r'Data.xlsx')
     dataSheets = data.sheets()[0]
     row = dataSheets.nrows
     print("开始批量提交!")
