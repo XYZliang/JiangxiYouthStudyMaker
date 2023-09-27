@@ -8,6 +8,7 @@ from anti_useragent import UserAgent
 # 必填 个人微信认证id，详见README
 openId = ""
 
+
 def makeHeader(openid=""):
     jsonInfo = {
         'Accept': '*/*',
@@ -21,10 +22,10 @@ def makeHeader(openid=""):
         'Referer': 'http://www.jxqingtuan.cn/html?requestType=http',
         'User-Agent': UserAgent(platform="iphone").wechat
     }
-    if len(openid)>0:
-        jsonInfo["Referer"] = 'http://www.jxqingtuan.cn/html/?&accessToken=' + openid + '&openid=' + openid+'&requestType=http'
+    if len(openid) > 0:
+        jsonInfo[
+            "Referer"] = 'http://www.jxqingtuan.cn/html/?&accessToken=' + openid + '&openid=' + openid + '&requestType=http'
         jsonInfo["openid"] = openid
-
 
 
 def getIDInfo(openid):
@@ -32,7 +33,7 @@ def getIDInfo(openid):
     res = json.loads(requests.get(url, headers=makeHeader()).text)
     # print(res)
     if str(res.get("code")) == '200':
-        return res.get("vo").get("areaid4"),res.get("vo").get("telphone"),res.get("vo").get("username")
+        return res.get("vo").get("areaid4"), res.get("vo").get("telphone"), res.get("vo").get("username")
     else:
         print("查询个人信息未知错误：" + res)
         exit()
@@ -52,8 +53,8 @@ def getCourse():
         exit()
 
 
-def getStudy(course, nid, subOrg, cardNo,openid=""):
-    url = "http://www.jxqingtuan.cn/pub/pub/vol/volClass/join?accessToken="+openid
+def getStudy(course, nid, subOrg, cardNo, openid=""):
+    url = "http://www.jxqingtuan.cn/pub/pub/vol/volClass/join?accessToken=" + openid
     if len(subOrg) > 0:
         data = {"course": course, "subOrg": subOrg, "nid": nid, "cardNo": cardNo}
     else:
@@ -67,5 +68,5 @@ def getStudy(course, nid, subOrg, cardNo,openid=""):
 
 
 if __name__ == '__main__':
-    pid , subOrg , cardNo = getIDInfo(openId)
+    pid, subOrg, cardNo = getIDInfo(openId)
     getStudy(getCourse(), pid, subOrg, cardNo, openId)
