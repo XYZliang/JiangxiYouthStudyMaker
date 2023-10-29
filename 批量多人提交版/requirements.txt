@@ -1,10 +1,10 @@
-anti_useragent>=1.0.5
+anti_useragent>=1.0.10
 beautifulsoup4>=4.12.2
-ddddocr>=1.0.6
-imagei>=2.31.4
-Js2P>=0.74
+ddddocr>=1.4.8
+imageio>=2.31.6
+Js2Py>=0.74
 openpyxl==3.1.2
-pandas>=2.1.1
+pandas>=2.1.2
 Pillow==9.5.0
 Requests>=2.31.0
 tqdm>=4.66.1

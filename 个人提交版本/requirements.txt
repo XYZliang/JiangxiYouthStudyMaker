@@ -1,2 +1,2 @@
-anti_useragent>=1.0.5
-Requests>=2.27.0
+anti_useragent>=1.0.10
+Requests>=2.31.0
