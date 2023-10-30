@@ -133,7 +133,7 @@ force_submit = True
 
    ​        那么依次选择：
 
-   <div align=center><img src="readmeImages/img6.png" alt="img3" style="width:200px" /><img src="readmeImages/img7.png" alt="img3" style="width:200px" /><img src="readmeImages/img8.png" alt="img8" style="width:200px" /><img src="readmeImages/img9.png" alt="img3" style="width:200px" /></div>
+   <div align=center><img src="readmeImages/img6.png" alt="img3" style="width:150px" /><img src="readmeImages/img7.png" alt="img3" style="width:150px" /><img src="readmeImages/img8.png" alt="img8" style="width:150px" /><img src="readmeImages/img9.png" alt="img3" style="width:150px" /></div>
 
    ​        那么你将得到类似以下的结果
 
@@ -246,6 +246,8 @@ force_submit = True
 
 - 目前大学习系统还处于一个经常修改的状态，数据也很矛盾，因此可能需要我对程序进行更新，也很大概率是系统崩溃了，**建议过段时间在白天再次尝试**，还是有问题的话，带上完整的程序输出，提交issues
 
+- **各个文件夹内生成的excel表格建议不要删除**，如果哪天系统封闭了这个获取id的方式，这些每次运行生成的excel表格就还留有救命的数据，确保后续任然可以正常大学习
+
 ## 免责声明
 
 1. 本程序为免费开源项目，仅供交流学习，遵循GPL v3开源协议，无任何形式的盈利行为。
@@ -255,4 +257,6 @@ force_submit = True
 5. 严禁使用本程序进行盈利、散播任何违法信息等行为。
 6. 本程序不作任何稳定性的承诺，如因使用本程序导致的问题，均与本程序无关。
 
- 
+## 鸣谢 
+
+组织查询的部分代码来自仓库[ygxiuming/QN-big-study: 江西青年大学习批量过后台适用于2022新版青年大学习善德教育系统 (github.com)](https://github.com/ygxiuming/QN-big-study)，懒得敲哈哈哈

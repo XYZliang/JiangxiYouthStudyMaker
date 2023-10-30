@@ -274,7 +274,6 @@ def main():
     # 步骤5
     print("开始获取课程...")
     course,courseName,courseUrl = getCourse()
-    course = 60
     # 步骤6
     result_list = []
     if only_unlearned:
