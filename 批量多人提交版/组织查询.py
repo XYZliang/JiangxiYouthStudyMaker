@@ -4,6 +4,7 @@ import secrets
 import requests
 from anti_useragent import UserAgent
 
+# 可以不填
 openid = ""
 
 def makeHeader(openid):
@@ -22,11 +23,13 @@ def makeHeader(openid):
     }
 
 
-def get_mes(pid):
+def get_mes(pid,errorTime = 0):
+    if errorTime > 5:
+        print("多次查询错误，请检查网络连接")
+        exit()
     url = "http://www.jxqingtuan.cn/pub/pub/vol/config/organization?pid={pid}".format(pid=pid)
     payload = {}
     headers = {
-        'Cookie': 'JSESSIONID=BUkb7Lsw0BWVR1oHYqKuBUVXme6ERuveELY4ohQA; JSESSIONID=V6Wm1rYYKt2ApKxkXkGdCGT8snY3pt-11q4sN6Mo',
         'User-Agent': 'Mozilla/5.0 (iPad; CPU OS 15_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.15(0x18000f20) NetType/WIFI Language/zh_CN',
         'X-Requested-With': 'XMLHttpRequest',
         'Host': 'osscache.vol.jxmfkj.com',
@@ -35,7 +38,10 @@ def get_mes(pid):
     }
     # response = requests.request("GET", url, headers=headers, data=payload)
     # print(url)
-    response = json.loads((requests.get(url=url, data=json.dumps(payload), headers=makeHeader(openid))).text)
+    try:
+        response = json.loads((requests.get(url=url, data=json.dumps(payload), headers=makeHeader(openid),timeout=5)).text)
+    except TimeoutError:
+        return get_mes(pid,errorTime+1)
     # print(response)
     # response = json.loads(response.text)
     response = response["result"]
